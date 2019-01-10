@@ -17,7 +17,7 @@ spec:
       labels:
         service: ffdl-lcm
         environment: {{.Values.env}}
-        version:  {{.Values.lcm.version}}
+        version:  {{.Values.ffdl_lcm.lcm.version}}
     spec:
       serviceAccountName: editor
       volumes:
@@ -53,7 +53,7 @@ spec:
 {{ end }}
       containers:
       - name: ffdl-lcm-container
-        image: {{.Values.docker.registry}}/{{.Values.docker.namespace}}/{{.Values.lcm.image_name}}:{{.Values.lcm.version}}
+        image: {{.Values.docker.registry}}/{{.Values.docker.namespace}}/{{.Values.lcm.image_name}}:{{.Values.ffdl_lcm.lcm.version}}
 {{ if .Values.docker.pullPolicy }}
         imagePullPolicy: {{.Values.docker.pullPolicy}}
 {{ end }}
